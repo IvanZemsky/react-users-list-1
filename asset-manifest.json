@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/IvanZemsky/react-users-list-1/static/css/main.073c9b0a.css",
-    "main.js": "/IvanZemsky/react-users-list-1/static/js/main.59e97d8a.js",
-    "static/js/787.8940d531.chunk.js": "/IvanZemsky/react-users-list-1/static/js/787.8940d531.chunk.js",
-    "static/media/logo.svg": "/IvanZemsky/react-users-list-1/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/IvanZemsky/react-users-list-1/static/css/main.c5541a15.css",
+    "main.js": "/IvanZemsky/react-users-list-1/static/js/main.aeb0f14f.js",
     "index.html": "/IvanZemsky/react-users-list-1/index.html",
-    "main.073c9b0a.css.map": "/IvanZemsky/react-users-list-1/static/css/main.073c9b0a.css.map",
-    "main.59e97d8a.js.map": "/IvanZemsky/react-users-list-1/static/js/main.59e97d8a.js.map",
-    "787.8940d531.chunk.js.map": "/IvanZemsky/react-users-list-1/static/js/787.8940d531.chunk.js.map"
+    "main.c5541a15.css.map": "/IvanZemsky/react-users-list-1/static/css/main.c5541a15.css.map",
+    "main.aeb0f14f.js.map": "/IvanZemsky/react-users-list-1/static/js/main.aeb0f14f.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.59e97d8a.js"
+    "static/css/main.c5541a15.css",
+    "static/js/main.aeb0f14f.js"
   ]
 }
