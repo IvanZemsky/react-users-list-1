@@ -1,22 +1,43 @@
+import React, { useState } from "react";
 import "./App.css";
+import CreateInput from "./components/CreateInput/CreateInput";
+import SearchInput from "./components/SearchInput/SearchInput";
 
 function App() {
-   let action = 'search';
+   
+   let [formAction, setFormAction] = useState("search");
+   let [inputForm, setInputForm] = useState(<SearchInput/>);
+
+   const turnFormAction = (event) => {
+      event.preventDefault();
+
+      switch (formAction) {
+         case "search": {
+            setFormAction("create");
+            setInputForm(<CreateInput/>);
+            break;
+         }
+         case "create": {
+            setFormAction("search");
+            setInputForm(<SearchInput/>);
+            break;
+         }
+      }
+   };
 
    return (
       <div className="app">
          <div className="control">
             <form className="control-form">
-               {
-                  action == 'search'
-                     ?  <button className="control-turn-add">Add a user</button>
-                     :  <button className="control-turn-search">Return to search</button>
-               }
+               {formAction === "search" ? (
+                  <button className="control-turn" onClick={turnFormAction}>
+                     Add a user
+                  </button>
+               ) : (
+                  <button className="control-turn" onClick={turnFormAction}>Return to search</button>
+               )}
 
-               <fieldset className="control-search">
-                  <input type="text" placeholder="Search" />
-                  <button className="control-search-button">Search</button>
-               </fieldset>
+               {inputForm}
 
             </form>
             <div className="output"></div>
@@ -26,11 +47,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<fieldset className="control-create">
-                  <button className="control-create-close">Close</button>
-                  <input type="text" placeholder="Write a name of user" />
-                  <button className="control-create-button">Create</button>
-               </fieldset>
-               */
