@@ -11,17 +11,14 @@ function App() {
    const turnFormAction = (event) => {
       event.preventDefault();
 
-      switch (formAction) {
-         case "search": {
-            setFormAction("create");
-            setInputForm(<CreateInput/>);
-            break;
-         }
-         case "create": {
-            setFormAction("search");
-            setInputForm(<SearchInput/>);
-            break;
-         }
+      if (formAction === 'search') {
+         setFormAction("create");
+         setInputForm(<CreateInput/>);
+      }
+      else {
+         // formAction === 'create
+         setFormAction("search");
+         setInputForm(<SearchInput/>);
       }
    };
 
@@ -29,11 +26,13 @@ function App() {
       <div className="app">
          <div className="control">
             <form className="control-form">
-               {formAction === "search" ? (
+               {formAction === "search" 
+               ? (
                   <button className="control-turn" onClick={turnFormAction}>
                      Add a user
                   </button>
-               ) : (
+               ) 
+               : (
                   <button className="control-turn" onClick={turnFormAction}>Return to search</button>
                )}
 
