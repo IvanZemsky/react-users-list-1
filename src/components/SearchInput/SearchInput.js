@@ -1,12 +1,51 @@
-import React from "react";
-import './SearchInput.css';
+import React, { useRef } from "react";
+import CreateInput from "../CreateInput/CreateInput";
+import "./SearchInput.css";
 
-function SearchInput() {
+function SearchInput(props) {
+   let searchInput = useRef(null);
+
+   const handleInputFocus = (event) => {
+      searchInput.current.setAttribute("placeholder", "");
+   };
+
+   const handleInputBlur = (event) => {
+      searchInput.current.setAttribute("placeholder", "Search");
+   };
+
    return (
-      <fieldset className="control-search">
-         <input type="text" placeholder="Search" />
-         <button className="control-search-button">Search</button>
-      </fieldset>
+      <form className="control-form">
+         <button
+            className="control-turn"
+            type="button"
+            onClick={() =>
+               props.turnControlForm({
+                  status: "create",
+                  component: (
+                     <CreateInput
+                        turnControlForm={props.turnControlForm}
+                        users={props.users}
+                        setNewUser={props.setNewUser}
+                     />
+                  ),
+               })
+            }
+         >
+            Add a user
+         </button>
+         <fieldset className="control-search">
+            <input
+               ref={searchInput}
+               type="text"
+               placeholder="Search"
+               onFocus={handleInputFocus}
+               onBlur={handleInputBlur}
+            />
+            <button type="button" className="control-search-button">
+               Search
+            </button>
+         </fieldset>
+      </form>
    );
 }
 
