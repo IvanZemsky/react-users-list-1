@@ -18,18 +18,6 @@ function SearchInput(props) {
          <button
             className="control-turn"
             type="button"
-            onClick={() =>
-               props.turnControlForm({
-                  status: "create",
-                  component: (
-                     <CreateInput
-                        turnControlForm={props.turnControlForm}
-                        users={props.users}
-                        setNewUser={props.setNewUser}
-                     />
-                  ),
-               })
-            }
          >
             Add a user
          </button>
