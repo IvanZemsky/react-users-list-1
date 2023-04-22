@@ -5,7 +5,7 @@ import './Output.css';
 export default function Output(props) {
    return (
          <div className="output">
-            {props.users.map(item => <User key={props.users.indexOf(item)} name={item}/>)}
+            {props.users.map((user, i) => <User key={i} name={user.name} age={user.age} desc={user.desc}/>)}
          </div>
    );
 }

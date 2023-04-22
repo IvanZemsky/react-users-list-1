@@ -14,7 +14,7 @@ function CreateInput(props) {
 
    return (
       <form className="conctol-form">
-         <button className="control-turn" type="button">
+         <button className="control-turn" type="button" onClick={() => props.setControlForm('search')}>
             Return to search
          </button>
          <fieldset className="control-create">
@@ -29,6 +29,7 @@ function CreateInput(props) {
             <button
                type="button"
                className="control-create-button"
+               onClick={() => props.setNewUser(createInput.current.value)}
             >
                Create
             </button>

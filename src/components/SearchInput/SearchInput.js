@@ -18,6 +18,7 @@ function SearchInput(props) {
          <button
             className="control-turn"
             type="button"
+            onClick={() => props.setControlForm('create')}
          >
             Add a user
          </button>

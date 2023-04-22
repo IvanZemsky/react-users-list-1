@@ -6,25 +6,22 @@ import SearchInput from "./components/SearchInput/SearchInput";
 
 function App() {
    let [users, setUsers] = useState([]);
-
-   const turnControlForm = (newForm) => {
-      setControlForm(newForm);
-   }
+   let [controlForm, setControlForm] = useState("search");
 
    const setNewUser = (newUser) => {
-      setUsers([...users, newUser]);
+      setUsers([...users, {name: newUser, age: 'Не указано', desc: 'Не указано' }]);
       console.log(users);
-   };
-
-   let [controlForm, setControlForm] = useState({
-      status: "search",
-      component: <SearchInput users={users} setNewUser={setNewUser} turnControlForm={turnControlForm} />,
-   });
+   }
 
    return (
       <div className="app">
          <div className="control">
-            {controlForm.component}
+            {controlForm === "search" ? (
+               <SearchInput setControlForm={setControlForm} />
+            ) : (
+               <CreateInput setControlForm={setControlForm} setNewUser={setNewUser} />
+            )}
+
             <Output users={users} />
          </div>
       </div>
@@ -32,28 +29,3 @@ function App() {
 }
 
 export default App;
-
-/*
-   const turnControlForm = () => {
-      console.log(1);
-
-      if (controlForm === "search") {
-         setControlForm({
-            status: "create",
-            component: (
-               <CreateInput
-                  turnControlForm={turnControlForm}
-                  users={users}
-                  setNewUser={setNewUser}
-               />
-            ),
-         });
-      } else {
-         // formAction === 'create'
-         setControlForm({
-            status: "search",
-            component: <SearchInput turnControlForm={turnControlForm} />
-         });
-      }
-   };
-   */

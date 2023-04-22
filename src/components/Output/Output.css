@@ -2,7 +2,17 @@
    height: calc(100% - 70px);
 }
 
-.user-card {
+.user-card{
+   height: 37px;
+   overflow-y: hidden;
+   transition: .5s;
+}
+
+.card-name, .card-info{
    border-bottom: 1px solid #3e3e3e;
    padding: 10px 14px;
+}
+
+.card-name{
+   cursor: pointer;
 }
