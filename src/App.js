@@ -9,8 +9,8 @@ function App() {
    let [controlForm, setControlForm] = useState("search");
 
    const setNewUser = (newUser) => {
+      if (newUser === '' || users.find(item => item.name === newUser)) return;
       setUsers([...users, {name: newUser, age: 'Не указано', desc: 'Не указано' }]);
-      console.log(users);
    }
 
    return (

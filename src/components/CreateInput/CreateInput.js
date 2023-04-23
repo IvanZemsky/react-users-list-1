@@ -18,7 +18,6 @@ function CreateInput(props) {
             Return to search
          </button>
          <fieldset className="control-create">
-            <button className="control-create-button">Close</button>
             <input
                ref={createInput}
                type="text"

@@ -4,15 +4,29 @@
 
 .user-card{
    height: 37px;
+   border-bottom: 1px solid #3e3e3e;
    overflow-y: hidden;
    transition: .5s;
 }
 
-.card-name, .card-info{
+.card-name{
+   position: relative;
+   padding: 10px 64px 10px 10px;
    border-bottom: 1px solid #3e3e3e;
-   padding: 10px 14px;
+   cursor: pointer;
 }
 
-.card-name{
-   cursor: pointer;
+.card-open-arrow{
+   position: absolute;
+   top: 50%;
+   right: 24.5px;
+   transform: translateY(-50%) rotate(90deg);
+   z-index: 10;
+   background-size: 17px 17px;
+   fill: #2c2c2c;
+   transition: .3s;
+}
+
+.card-info{
+   padding: 10px 64px 10px 14px;
 }
