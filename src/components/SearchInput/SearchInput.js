@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import CreateInput from "../CreateInput/CreateInput";
+import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 import "./SearchInput.css";
 
 function SearchInput(props) {
@@ -27,12 +27,10 @@ function SearchInput(props) {
                ref={searchInput}
                type="text"
                placeholder="Search"
+               onChange={() => props.setSearchRequest(searchInput.current.value)} // отправка данных родителю
                onFocus={handleInputFocus}
                onBlur={handleInputBlur}
             />
-            <button type="button" className="control-search-button">
-               Search
-            </button>
          </fieldset>
       </form>
    );
