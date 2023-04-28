@@ -1,9 +1,9 @@
 .output {
-   height: calc(100% - 70px);
+   height: calc(100% - 91px);
 }
 
 .user-card{
-   height: 37px;
+   height: 57px;
    border-bottom: 1px solid #3e3e3e;
    overflow-y: hidden;
    transition: .5s;
@@ -11,7 +11,7 @@
 
 .card-name{
    position: relative;
-   padding: 10px 64px 10px 10px;
+   padding: 15px 68px 15px 15px;
    border-bottom: 1px solid #3e3e3e;
    cursor: pointer;
 }
@@ -28,5 +28,6 @@
 }
 
 .card-info{
-   padding: 10px 64px 10px 14px;
+   padding: 15px 68px 15px 15px;
+   font-size: 22px;
 }
