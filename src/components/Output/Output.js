@@ -4,22 +4,30 @@ import User from "./../User/User";
 import "./Output.css";
 
 export default function Output(props) {
+
+   let [searchResults, setSearchResults] = useState(props.users);
    
-   let searchResults = [];
    useEffect(() => {
-      searchResults = props.users.filter(user => {
-         return user.name.includes(props.searchRequest);
-      });
+      let filtered = props.users.filter(user => {
+         return user.name.toLowerCase().startsWith(props.searchRequest.toLowerCase());
+      })
+      setSearchResults(filtered);
+   }, [props.searchRequest]);
+
+   /*
+   useEffect(() => {
+      console.log(props.searchRequest);
+      console.log(props.users);
       console.log(searchResults);
-   })
-   
+      console.log('--------------');
+   }, [searchResults])
+   */
 
    return (
       <div className="output">
          {props.searchRequest === '' ? 
-            props.users.map((user, i) => <User key={i} users={props.users[i]} />)
-            : searchResults.map((user, i) => <User key={i} users={props.users[i]}/>)
-         }
+         props.users.map(user => <User key={user.id} user={user} />) :
+         searchResults.map(user => <User key={user.id} user={user} />)}
       </div>
    );
 }
