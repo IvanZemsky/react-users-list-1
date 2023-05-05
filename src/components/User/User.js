@@ -35,8 +35,8 @@ export default function User({user}) {
                   </g>
                </svg>
             </button>
-            <p className="card-info_age">Возраст: {user.age}</p>
-            <p className="card-info_desc">Описание: {user.desc}</p>
+            <p className="card-info_age">Age: <input className="card-info_input" type="text" readOnly value={user.age}/></p>
+            <p className="card-info_desc">Description: <input className="card-info_input" type="text" readOnly value={user.desc}/></p>
          </div>
       </div>
    );

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 import "./CreateInput.css";
 
 function CreateInput(props) {

@@ -35,14 +35,18 @@
 
 .card-info-btn{
    position: absolute;
-   top: 50%;
+   top: 10px;
    right: 12.5px;
    display: block;
    width: 37px;
    height: 37px;
-   transform: translateY(-50%);
    background-size: 17px 17px;
    fill: #2c2c2c;
    transition: 0.3s;
    z-index: 10;
+}
+
+.card-info_input{
+   display: inline;
+   color: #fff;
 }

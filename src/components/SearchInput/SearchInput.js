@@ -5,6 +5,13 @@ import "./SearchInput.css";
 function SearchInput(props) {
    let searchInput = useRef(null);
 
+   useEffect(() => {
+     return () => {
+       props.setSearchRequest('');
+     }
+   }, []);
+   
+
    const handleInputFocus = (event) => {
       searchInput.current.setAttribute("placeholder", "");
    };
@@ -18,7 +25,10 @@ function SearchInput(props) {
          <button
             className="control-turn"
             type="button"
-            onClick={() => props.setControlForm('create')}
+            onClick={() => {
+               searchInput.current.value = null;
+               props.setControlForm('create');
+            }}
          >
             Add a user
          </button>
