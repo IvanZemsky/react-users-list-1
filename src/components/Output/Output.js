@@ -8,10 +8,10 @@ export default function Output(props) {
    let [searchResults, setSearchResults] = useState(props.users);
    
    useEffect(() => {
-      let filtered = props.users.filter(user => {
+      let filteredResults = props.users.filter(user => {
          return user.name.toLowerCase().startsWith(props.searchRequest.toLowerCase());
       })
-      setSearchResults(filtered);
+      setSearchResults(filteredResults);
    }, [props.searchRequest]);
 
    /*

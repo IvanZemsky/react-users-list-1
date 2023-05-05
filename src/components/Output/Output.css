@@ -2,32 +2,47 @@
    height: calc(100% - 91px);
 }
 
-.user-card{
+.user-card {
    height: 57px;
    border-bottom: 1px solid #3e3e3e;
    overflow-y: hidden;
-   transition: .5s;
+   transition: 0.5s;
 }
 
-.card-name{
+.card-name {
    position: relative;
    padding: 15px 68px 15px 15px;
    border-bottom: 1px solid #3e3e3e;
    cursor: pointer;
 }
 
-.card-open-arrow{
+.card-open-arrow {
    position: absolute;
    top: 50%;
    right: 24.5px;
    transform: translateY(-50%) rotate(90deg);
-   z-index: 10;
    background-size: 17px 17px;
    fill: #2c2c2c;
-   transition: .3s;
+   transition: 0.3s;
+   z-index: 10;
 }
 
-.card-info{
+.card-info {
+   position: relative;
    padding: 15px 68px 15px 15px;
    font-size: 22px;
+}
+
+.card-info-btn{
+   position: absolute;
+   top: 50%;
+   right: 12.5px;
+   display: block;
+   width: 37px;
+   height: 37px;
+   transform: translateY(-50%);
+   background-size: 17px 17px;
+   fill: #2c2c2c;
+   transition: 0.3s;
+   z-index: 10;
 }
