@@ -35,11 +35,24 @@
 
 .card-info-btn{
    position: absolute;
-   top: 10px;
+   top: 5px;
    right: 12.5px;
    display: block;
    width: 37px;
    height: 37px;
+   background-size: 17px 17px;
+   fill: #2c2c2c;
+   transition: 0.3s;
+   z-index: 10;
+}
+
+.card-info-save{
+   position: absolute;
+   bottom: 6px;
+   right: 18.5px;
+   display: block;
+   width: 30px;
+   height: 30px;
    background-size: 17px 17px;
    fill: #2c2c2c;
    transition: 0.3s;
