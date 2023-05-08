@@ -14,14 +14,11 @@ export default function Output(props) {
       setSearchResults(filteredResults);
    }, [props.searchRequest]);
 
-   /*
+   // --------------
    useEffect(() => {
-      console.log(props.searchRequest);
       console.log(props.users);
-      console.log(searchResults);
-      console.log('--------------');
-   }, [searchResults])
-   */
+   }, [props.users])
+   
 
    return (
       <div className="output">

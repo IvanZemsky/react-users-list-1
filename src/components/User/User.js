@@ -3,15 +3,18 @@ import { useState } from "react";
 
 export default function User({ user }) {
    let [isEditor, setIsEditor] = useState(false);
-   let [inputValue, setInputValue] = useState('Не указано');
+   let [editFormData, setEditFormData] = useState({
+      userAge: user.age,
+      userDesc: user.desc
+   });
 
    const arrowIcon = useRef(null);
    const userCard = useRef(null);
    const editCard = useRef(null);
-   const cardInput = useRef(null);
+   const cardInputs = [useRef(null), useRef(null)];
    const cardSave = useRef(null);
 
-   const openCardDesc = (event) => {
+   const openCardDesc = () => {
       if (userCard.current.style.height) {
          arrowIcon.current.style.transform = "translateY(-50%) rotate(90deg)";
          userCard.current.style.height = null;
@@ -25,24 +28,34 @@ export default function User({ user }) {
       event.preventDefault();
       setIsEditor(true);
 
-      cardInput.current.style.backgroundColor = '#2e2e2e';
-      cardInput.current.removeAttribute('readonly');
+      cardInputs.forEach(ref => {
+         ref.current.style.backgroundColor = '#2e2e2e';
+         ref.current.removeAttribute('readonly');
+      });
+
    };
 
-   const handleInputEnter = (event) => {
+   const handleInputEnter = (event) => { // upscaling input by onChange
       event.target.setAttribute("size", event.target.value.length || 10);
    };
 
-   const handleSaveClick = (event) => {
+   const handleSubmit = (event) => {
       event.preventDefault();
       setIsEditor(false);
 
-      cardInput.current.style.backgroundColor = null;
-      cardInput.current.setAttribute('readonly', 'readonly');
+      cardInputs.forEach(ref => {
+         ref.current.style.backgroundColor = null;
+         ref.current.removeAttribute('readonly', 'readonly');
+
+
+      });
    }
 
    const handleInputChange = (event) => {
-      setInputValue(event.target.value);
+      setEditFormData({
+         ...editFormData,
+         [event.target.name]: event.target.value
+      })
    }
 
    return (
@@ -86,7 +99,7 @@ export default function User({ user }) {
             </button>
 
             {isEditor && (
-               <button ref={cardSave} className="card-info-save" onClick={handleSaveClick} type="text">
+               <button ref={cardSave} className="card-info-save" onClick={handleSubmit} type="text">
                <svg
                   width="30"
                   height="30"
@@ -120,23 +133,9 @@ export default function User({ user }) {
                Age:{" "}
                <input
                   className="card-info_input"
-                  ref={cardInput}
-                  size="10"
-                  maxLength="30"
-                  onKeyDown={handleInputEnter}
-                  onKeyUp={handleInputEnter}
-                  onKeyPress={handleInputEnter}
-                  onChange={handleInputEnter}
-                  type="text"
-                  readOnly
-                  value={user.age}
-               />
-            </p>
-            <p className="card-info_desc">
-               Description:{" "}
-               <input
-                  className="card-info_input"
-                  ref={cardInput}
+                  ref={cardInputs[0]}
+                  name="userAge"
+                  id="userAge"
                   size="10"
                   maxLength="30"
                   onKeyDown={handleInputEnter}
@@ -148,7 +147,28 @@ export default function User({ user }) {
                   }}
                   type="text"
                   readOnly
-                  value={inputValue}
+                  value={editFormData.userAge}
+               />
+            </p>
+            <p className="card-info_desc">
+               Description:{" "}
+               <input
+                  className="card-info_input"
+                  ref={cardInputs[1]}
+                  name="userDesc"
+                  id="userDesc"
+                  size="10"
+                  maxLength="30"
+                  onKeyDown={handleInputEnter}
+                  onKeyUp={handleInputEnter}
+                  onKeyPress={handleInputEnter}
+                  onChange={(event) => {
+                     handleInputEnter(event);
+                     handleInputChange(event);
+                  }}
+                  type="text"
+                  readOnly
+                  value={editFormData.userDesc}
                />
             </p>
          </form>
