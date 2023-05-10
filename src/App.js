@@ -9,14 +9,7 @@ function App() {
    let [users, setUsers] = useState([]);
    let [controlForm, setControlForm] = useState("search");
    let [searchRequest, setSearchRequest] = useState("");
-
-   /*
-   useEffect(() => {
-      console.log(searchRequest);
-      console.log(users);
-   }, [searchRequest, users])
-   */
-
+   
    const setNewUser = (newUser) => {
       if (newUser === "" || users.find((item) => item.name === newUser)) return;
       setUsers([
@@ -29,6 +22,14 @@ function App() {
          },
       ]);
    };
+
+   const handleUserUpdate = (updatedUser, index) => {
+      setUsers(prevUsers => {
+         const newUsers = [...prevUsers];
+         newUsers[index] = updatedUser;
+         return newUsers;
+      });
+   }
 
    return (
       <div className="app">
@@ -45,7 +46,7 @@ function App() {
                />
             )}
 
-            <Output users={users} searchRequest={searchRequest} />
+            <Output users={users} searchRequest={searchRequest} handleUserUpdate={handleUserUpdate}/>
          </div>
       </div>
    );

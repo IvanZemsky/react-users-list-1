@@ -1,12 +1,14 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 
-export default function User({ user }) {
+export default function User({ user, handleUserUpdate }) {
    let [isEditor, setIsEditor] = useState(false);
    let [editFormData, setEditFormData] = useState({
       userAge: user.age,
       userDesc: user.desc
    });
+   
+   let editedUser = {...user};
 
    const arrowIcon = useRef(null);
    const userCard = useRef(null);
@@ -46,9 +48,13 @@ export default function User({ user }) {
       cardInputs.forEach(ref => {
          ref.current.style.backgroundColor = null;
          ref.current.removeAttribute('readonly', 'readonly');
-
-
       });
+
+      handleUserUpdate({
+         ...editedUser,
+         age: editFormData.userAge,
+         desc: editFormData.userDesc
+      }, user.id);
    }
 
    const handleInputChange = (event) => {
