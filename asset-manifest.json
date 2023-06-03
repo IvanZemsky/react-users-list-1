@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/IvanZemsky/react-users-list-1/static/css/main.c5541a15.css",
-    "main.js": "/IvanZemsky/react-users-list-1/static/js/main.aeb0f14f.js",
+    "main.css": "/IvanZemsky/react-users-list-1/static/css/main.1a2afade.css",
+    "main.js": "/IvanZemsky/react-users-list-1/static/js/main.684d034e.js",
     "index.html": "/IvanZemsky/react-users-list-1/index.html",
-    "main.c5541a15.css.map": "/IvanZemsky/react-users-list-1/static/css/main.c5541a15.css.map",
-    "main.aeb0f14f.js.map": "/IvanZemsky/react-users-list-1/static/js/main.aeb0f14f.js.map"
+    "main.1a2afade.css.map": "/IvanZemsky/react-users-list-1/static/css/main.1a2afade.css.map",
+    "main.684d034e.js.map": "/IvanZemsky/react-users-list-1/static/js/main.684d034e.js.map"
   },
   "entrypoints": [
-    "static/css/main.c5541a15.css",
-    "static/js/main.aeb0f14f.js"
+    "static/css/main.1a2afade.css",
+    "static/js/main.684d034e.js"
   ]
 }
